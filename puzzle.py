@@ -30,10 +30,10 @@ screen.fill(blue)
 pygame.display.set_caption("Puzzle Taquin")
 
 
-def draw_puzzle(puzzle):
+def draw_puzzle(grid):
     for line in range(lines):
         for column in range(columns):
-            piece = puzzle[line][column]
+            piece = grid[line][column]
             if piece != 0:
                 pygame.draw.rect(screen, purple, (column * square_size, line * square_size, square_size, square_size))
                 pygame.draw.line(screen, white, ((line)*square_size,0), ((line)*square_size, height))
