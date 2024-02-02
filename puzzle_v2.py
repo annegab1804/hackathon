@@ -23,8 +23,9 @@ lines, columns = 3, 3
 
 
 font = pygame.font.Font(None, 36)
+font_2 = pygame.font.Font(None, 20)
 
-screen = pygame.display.set_mode((width, height))
+screen = pygame.display.set_mode((width, height+square_size))
 screen.fill(blue)
 pygame.display.set_caption("Puzzle Taquin")
 
@@ -77,7 +78,8 @@ def new_configs(current_mat):
     return new_matrices
     
 
-def draw_puzzle(grid):
+def draw_puzzle(grid, moves):
+    pygame.draw.rect(screen, white, (0,height, width, square_size))
     for line in range(1,3) :
         pygame.draw.line(screen, white, ((line) * square_size , 0), ((line)*square_size, height))
         pygame.draw.line(screen, white, (0,(line) * square_size), ( width, (line)*square_size))
@@ -90,6 +92,16 @@ def draw_puzzle(grid):
                 text = font.render(str(piece), True, white)
                 text_position = text.get_rect(center=(column * square_size + square_size // 2, line * square_size + square_size // 2))
                 screen.blit(text, text_position)
+
+    phrase = f"Moves : {moves}"
+    moves_surface = font_2.render(phrase, True, black)  
+    moves_position = moves_surface.get_rect(center = (width//2, height + square_size//4))
+    screen.blit(moves_surface, moves_position) 
+
+    phrase2 = f"Optimal moves : {optimal_solution}"
+    optimal_surface = font_2.render(phrase, True, black)  
+    optimal_position = optimal_surface.get_rect(center = (width//2, height + 2*square_size//3))
+    screen.blit(optimal_surface, optimal_position)
 
 
 def shuffle_puzzle():
