@@ -141,18 +141,30 @@ def main():
                 x,y = find_empty(grid)
 
                 if event.key == pygame.K_UP:
+                    if x - 1 < 0 :
+                        pygame.quit()
+                        sys.exit()
                     grid[x][y]=grid[x-1][y]
                     grid[x-1][y]=0
 
                 elif event.key == pygame.K_DOWN:
+                    if x + 1 < 0 :
+                        pygame.quit()
+                        sys.exit()
                     grid[x][y]=grid[x+1][y]
                     grid[x+1][y]=0
 
                 elif event.key == pygame.K_LEFT:
+                    if y - 1 < 0 :
+                        pygame.quit()
+                        sys.exit()
                     grid[x][y]=grid[x][y-1]
                     grid[x][y-1]=0
 
                 elif event.key == pygame.K_RIGHT:
+                    if y + 1 < 0 :
+                        pygame.quit()
+                        sys.exit()
                     grid[x][y]=grid[x][y+1]
                     grid[x][y+1]=0
 
