@@ -31,13 +31,13 @@ pygame.display.set_caption("Puzzle Taquin")
 
 
 def draw_puzzle(grid):
+    for line in range(1,3) :
+        pygame.draw.line(screen, white, ((line) * square_size , 0), ((line)*square_size, height))
+        pygame.draw.line(screen, white, (0,(line) * square_size), ( width, (line)*square_size))
     for line in range(lines):
         for column in range(columns):
             piece = grid[line][column]
-            if piece != 0:
-                pygame.draw.rect(screen, purple, (column * square_size, line * square_size, square_size, square_size))
-                pygame.draw.line(screen, white, ((line)*square_size,0), ((line)*square_size, height))
-                pygame.draw.line(screen, white, (0,(column)*square_size), (width, (column)*square_size))
+            if piece != 0 :
                 
                 font = pygame.font.Font(None, 36)
                 text = font.render(str(piece), True, white)
