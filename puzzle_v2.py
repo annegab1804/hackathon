@@ -78,7 +78,7 @@ def new_configs(current_mat):
     return new_matrices
     
 
-def draw_puzzle(grid, moves):
+def draw_puzzle(grid, moves, optimal_solution):
     pygame.draw.rect(screen, white, (0,height, width, square_size))
     for line in range(1,3) :
         pygame.draw.line(screen, white, ((line) * square_size , 0), ((line)*square_size, height))
@@ -157,7 +157,7 @@ def main():
                     grid[x][y+1]=0
 
         screen.fill(purple) 
-        draw_puzzle(grid)  
+        draw_puzzle(grid, moves, optimal_solution)  
         pygame.display.flip()  
 
 main()
