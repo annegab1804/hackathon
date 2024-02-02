@@ -79,20 +79,20 @@ def main():
                 x,y = find_empty(grid)
 
                 if event.key == pygame.K_UP:
-                    grid[x][y]=grid[x+1][y]
-                    grid[x+1][y]=0
-
-                elif event.key == pygame.K_DOWN:
                     grid[x][y]=grid[x-1][y]
                     grid[x-1][y]=0
 
+                elif event.key == pygame.K_DOWN:
+                    grid[x][y]=grid[x+1][y]
+                    grid[x+1][y]=0
+
                 elif event.key == pygame.K_LEFT:
-                    grid[x][y]=grid[x][y+1]
-                    grid[x][y+1]=0
-                    
-                elif event.key == pygame.K_RIGHT:
                     grid[x][y]=grid[x][y-1]
                     grid[x][y-1]=0
+
+                elif event.key == pygame.K_RIGHT:
+                    grid[x][y]=grid[x][y+1]
+                    grid[x][y+1]=0
 
         screen.fill(purple) 
         draw_puzzle(grid)  
