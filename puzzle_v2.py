@@ -99,7 +99,7 @@ def draw_puzzle(grid, moves):
     screen.blit(moves_surface, moves_position) 
 
     phrase2 = f"Optimal moves : {optimal_solution}"
-    optimal_surface = font_2.render(phrase, True, black)  
+    optimal_surface = font_2.render(phrase2, True, black)  
     optimal_position = optimal_surface.get_rect(center = (width//2, height + 2*square_size//3))
     screen.blit(optimal_surface, optimal_position)
 
